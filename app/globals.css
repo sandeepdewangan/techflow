@@ -6,9 +6,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #fa812f;
-  --color-primary-light: #fef3e2;
   --font-spaceGrotesk: var(--font-spaceGrotesk);
+  --color-lightbg: var(--color-gray-50);
+  --color-darkbg: var(--color-gray-800);
+  --color-primary500: var(--color-orange-500);
 }
 
 /* 
@@ -16,17 +17,17 @@ Define set of classes which can be used on a multiple components.
 Use it like the classes, <span className="heading">Welcome</span> 
 */
 @layer utilities {
-  .heading {
-    @apply text-3xl font-bold;
-  }
-  .background {
-    @apply bg-gray-50 dark:bg-black dark:text-white;
-  }
   .primary-500 {
-    @apply text-orange-500;
+    @apply text-primary500;
   }
   .navbar {
-    @apply flex bg-gray-50 dark:bg-gray-800 p-5 gap-3 justify-between items-center;
+    @apply flex bg-lightbg dark:bg-darkbg p-5 gap-3 justify-between items-center;
+  }
+  .bg-auth {
+    @apply bg-[url(/images/auth-light.png)] dark:bg-[url(/images/auth-dark.png)];
+  }
+  .bg-gray100-700 {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-50 dark:hover:bg-gray-600;
   }
 }
 

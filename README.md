@@ -130,5 +130,59 @@ Hydration in Next.js is the process where the client-side JavaScript takes over 
 ### Tailwind
 
 **Screen Sizes**
+
 `sm`: width >= 640px
+
 `max-sm`: width < 640px
+
+### HTTP State Managment Mechanisms
+
+HTTP is a stateless protocol, meaning it does not maintain state between requests. However, web applications often require maintaining state to manage user sessions, track user preferences, and personalize user experiences.
+
+To address this, various state management mechanisms have been developed, including cookies, local storage, session storage, and more.
+
+**Cookies**
+
+Cookies are small pieces of data stored in the user's web browser by the server. They are commonly used for session management, tracking user preferences, and personalizing user experiences.
+
+Client sends cookies with every request to the same server, allowing the server to identify the user and maintain state across requests. It happens automatically once the cookie is set by the server making it a convenient way to manage user sessions.
+
+**Local Storage**
+
+Local storage is a web storage mechanism that allows data to be stored in the user's web browser. It provides a simple key-value storage interface and is commonly used for persisting user preferences, caching data, and storing application state.
+
+It provides a larger storage capacity than cookies (typically up to 5-10MB per domain) and is accessible via JavaScript APIs.
+
+Local storage is commonly used for caching static assets, storing user preferences, and offline data storage in progressive web applications (PWAs).
+
+**Session Storage**
+
+Session storage is similar to local storage but is cleared when the user's session ends (i.e., when the browser is closed). It is commonly used for storing temporary data that should not persist across sessions.
+
+Using session storage can help improve security by ensuring that sensitive data is not stored beyond the user's session.
+
+It is often used for temporary data storage, such as form data and shopping cart items, that should not persist across browser sessions
+
+**IndexedDB**
+
+IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs.
+
+It provides a more powerful and flexible storage solution compared to local storage and session storage but requires more complex programming logic.
+
+It is commonly used for storing large datasets, offline data synchronization, and complex data querying in web applications.
+
+### Different ways of Storing Sessions for Authorization
+
+**What's Session Token?**
+
+A session token is a unique identifier used to authenticate a user's session. It is typically generated during the authentication process and is used to associate a user with their session data on the server.
+
+It's a common practice to store session tokens on the client side and send them with each request to authenticate the user.
+
+Do keep in mind that session tokens are not associated with session based authentication only, they can be used with token based authentication as well in the form of bearer tokens like JSON Web Tokens (JWT).
+
+1. Cookies: Session tokens are often stored as cookies on the client's browser. The server sets a cookie containing the session token during the authentication process, and the client automatically sends this cookie with each subsequent request.
+
+2. Authorization headers (Bearer tokens): Bearer tokens, such as JSON Web Tokens (JWT), are another common method for storing session tokens. After successful authentication, the server generates a token containing user information and signs it. This token is then sent to the client, typically in the response body, and the client includes it in the Authorization header of subsequent requests.
+
+and many more.
