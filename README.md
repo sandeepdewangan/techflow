@@ -6,6 +6,10 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 
 1. Next Js
 
+### Package Used
+
+1. `next-themes`: For dark and light mode theme.
+
 ### Project Setup
 
 VS Code Extensions
@@ -118,3 +122,13 @@ C --> E["Requires frequent updates, every seconds"]
 E --> F{"Yes"} --> H["SSR"]
 E --> G{"No"} --> I["ISG"]
 ```
+
+### Hydration
+
+Hydration in Next.js is the process where the client-side JavaScript takes over the server-rendered HTML to make it interactive. It attaches event listeners and other interactive behaviors to the static HTML, allowing React to update the DOM and respond to user interactions without re-rendering the entire page.
+
+### Tailwind
+
+**Screen Sizes**
+`sm`: width >= 640px
+`max-sm`: width < 640px
