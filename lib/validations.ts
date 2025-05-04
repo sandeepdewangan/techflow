@@ -1,0 +1,27 @@
+import { z } from "zod";
+
+export const SignInSchema = z.object({
+    email: z.string().min(1, { message: "Email field is required" }).email({ message: "Please provide a valid email." }),
+    password: z.string().min(6, { message: "Password must be of atleast 6 characters long." }).max(50, { message: "Password cannot exceed 50 characters." }),
+});
+
+export const SignUpSchema = z.object({
+    username: z.string()
+        .min(3, { message: "Username must of atleast 3 characters." })
+        .max(30, { message: "Username cannot exceed 30 characters" })
+        .regex(/^[a-zA-Z0-9_]+$/, { message: "Username can contain only characters, numbers and underscore." }),
+    name: z.string()
+        .min(1, { message: "Name field must contain atleast 1 character" })
+        .max(15, { message: "Name field should be less than 15 characters" })
+        .regex(/^[a-zA-Z\s]+$/, { message: "Name field must contain characters and space." }),
+    email: z.string()
+        .min(1, { message: "Email field is required" })
+        .email({ message: "Please provide a valid email." }),
+    password: z.string()
+        .min(6, { message: "Password must be of atleast 6 characters long." })
+        .max(50, { message: "Password cannot exceed 50 characters." })
+        .regex(/[A-Z]/, { message: "Password must contain atleast one uppercase character" })
+        .regex(/[a-z]/, { message: "Password must contain atleast one lowecase character" })
+        .regex(/[0-9]/, { message: "Password must contain atleast one letter" })
+        .regex(/[!@#$%^&*]/, { message: "Password must contain atleast one special characters from ! @ # $ % ^ & *" })
+});

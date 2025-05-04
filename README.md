@@ -7,11 +7,17 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 1. Next Js
 2. Shadcn for UI Components
 3. Tailwind CSS for Styling
+4. React Hook Form
+5. Zod for schema declaration and validation
 
 ### Package Used
 
 1. `next-themes`: For dark and light mode theme.
 2. AuthJS for authentication.
+
+### Regular Expressions
+
+https://www.programiz.com/javascript/regex
 
 ### Project Setup
 

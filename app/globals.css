@@ -29,6 +29,14 @@ Use it like the classes, <span className="heading">Welcome</span>
   .bg-gray100-700 {
     @apply bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-50 dark:hover:bg-gray-600;
   }
+  /* primary button gradient color */
+  .bg-primary-gradient {
+    @apply bg-gradient-to-r from-orange-400 to-orange-300;
+  }
+  /* primary text gradient color */
+  .text-primary-gradient {
+    @apply bg-gradient-to-r from-orange-400 to-orange-300 text-transparent bg-clip-text;
+  }
 }
 
 /* 
