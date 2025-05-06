@@ -34,7 +34,9 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
               style={{ width: "20px", height: "auto" }}
               className="invert-colors"
             />
-            <p className={isActive ? "font-bold" : ""}>{link.label}</p>
+            <p className={cn(isActive ? "font-bold" : "", "max-lg:hidden")}>
+              {link.label}
+            </p>
           </Link>
         );
 
@@ -43,7 +45,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
             {LinkComponent}
           </SheetClose>
         ) : (
-          <></>
+          <React.Fragment key={link.route}>{LinkComponent}</React.Fragment>
         );
       })}
     </>

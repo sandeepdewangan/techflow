@@ -29,4 +29,9 @@ export const sidebarLinks = [
         imgUrl: "/icons/question.svg",
         route: "/ask-question",
     },
+    {
+        label: "Tags",
+        imgUrl: "/icons/tag.svg",
+        route: "/tags",
+    },
 ];

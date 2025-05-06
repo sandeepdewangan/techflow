@@ -23,6 +23,7 @@ Use it like the classes, <span className="heading">Welcome</span>
   .navbar {
     @apply flex bg-lightbg dark:bg-darkbg p-5 gap-3 justify-between items-center;
   }
+
   .bg-auth {
     @apply bg-[url(/images/auth-light.png)] dark:bg-[url(/images/auth-dark.png)];
   }
