@@ -27,7 +27,7 @@ Use it like the classes, <span className="heading">Welcome</span>
     @apply bg-[url(/images/auth-light.png)] dark:bg-[url(/images/auth-dark.png)];
   }
   .bg-gray100-700 {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-50 dark:hover:bg-gray-600;
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-50 cursor-pointer;
   }
   /* primary button gradient color */
   .bg-primary-gradient {
@@ -36,6 +36,9 @@ Use it like the classes, <span className="heading">Welcome</span>
   /* primary text gradient color */
   .text-primary-gradient {
     @apply bg-gradient-to-r from-orange-400 to-orange-300 text-transparent bg-clip-text;
+  }
+  .invert-colors {
+    @apply invert dark:invert-0;
   }
 }
 
