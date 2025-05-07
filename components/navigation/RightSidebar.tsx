@@ -35,7 +35,7 @@ const popularTags = [
 
 const RightSidebar = () => {
   return (
-    <div className="flex flex-col bg-lightbg dark:bg-darkbg p-5 gap-5 w-[300px] max-lg:hidden">
+    <div className="flex flex-col bg-lightbg dark:bg-darkbg p-5 gap-5 w-[300px] max-lg:hidden ml-auto basis-[30%]">
       <h1 className="font-bold ">Top Questions</h1>
       {topQuestions.map(({ _id, title }) => (
         <div key={_id}>

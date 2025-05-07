@@ -5,11 +5,11 @@ import React, { ReactNode } from "react";
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className="bg-yellow-50/50">
+    <main>
       <Navbar />
-      <div className="flex justify-between">
+      <div className="flex">
         <LeftSidebar />
-        <div className="my-8 mx-12 flex-col">{children}</div>
+        <div className="my-8 mx-12 flex-col w-screen">{children}</div>
         <RightSidebar />
       </div>
     </main>

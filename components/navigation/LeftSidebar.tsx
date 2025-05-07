@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const LeftSidebar = () => {
   return (
-    <div className="flex flex-col justify-center max-sm:hidden bg-lightbg dark:bg-darkbg">
+    <div className="flex flex-col justify-center max-sm:hidden bg-lightbg dark:bg-darkbg basis-[20%]">
       <div className="flex flex-col flex-1 p-5 gap-8">
         <NavLinks />
       </div>
