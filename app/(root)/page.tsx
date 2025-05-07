@@ -1,3 +1,4 @@
+import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
@@ -81,7 +82,9 @@ export default async function Home({ searchParams }: SearchParams) {
           />
         </section>
 
-        {/* <section className="mt-8">Home Filter</section> */}
+        <section className="mt-8">
+          <HomeFilter />
+        </section>
 
         <section className="pt-8">
           {filteredQuestion.map((question) => (
