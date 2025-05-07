@@ -14,6 +14,7 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 
 1. `next-themes`: For dark and light mode theme.
 2. AuthJS for authentication.
+3. `query-string`
 
 ### Regular Expressions
 
@@ -195,3 +196,117 @@ Do keep in mind that session tokens are not associated with session based authen
 2. Authorization headers (Bearer tokens): Bearer tokens, such as JSON Web Tokens (JWT), are another common method for storing session tokens. After successful authentication, the server generates a token containing user information and signs it. This token is then sent to the client, typically in the response body, and the client includes it in the Authorization header of subsequent requests.
 
 and many more.
+
+### State Management
+
+State management is akin to keeping track of data and events in an application, similar to remembering scores in a video game.
+
+**Local State Management:** refers to managing data within a single component (e.g., using a useState hook).
+
+**Global State Management:** allows data to be accessed and modified by multiple components, often utilizing a centralized store or context. The Context API is a common way to implement global state management in React. Other libraries for state management include Redux, Zustand, Recoil, and MobX, each serving different needs and complexities.
+
+**NOTE:**
+Redux, Context API, Zustand, and others are all hook-based patterns, we can't use them on the server side.
+
+Solution is URL State Management.
+
+### URL State Management
+
+A URL (Uniform Resource Locator) with parameters typically consists of several components:
+
+**Scheme**: Specifies the protocol used to access the resource, such as http:// or https://.
+
+**Domain**: The domain name or IP address of the server hosting the resource.
+
+**Port**: (Optional) Specifies the port number to which the request should be sent. Default ports are often omitted (e.g., port 80 for HTTP, port 443 for HTTPS).
+
+**Path**: The specific resource or endpoint on the server, typically represented as a series of directories and filenames.
+
+**Query Parameters**: (Also known as `searchParams` in Next.js) Additional data sent to the server as part of the request, typically used for filtering or modifying the requested resource. Query parameters are appended to the URL after a question mark "?" and separated by ampersands "&"
+
+For example: ?param1=value1¶m2=value2
+
+**Fragment**: (Optional) Specifies a specific section within the requested resource, often used in web pages to navigate to a particular section. It is indicated by a hash "#" followed by the fragment identifier.
+
+**Example**
+
+**SERVER SIDE**
+
+```js
+async function Page({ params, searchParams }) {
+  const { id } = await params;
+  const { page, filter } = await searchParmas;
+
+  return <h1>My Page</h1>;
+}
+export default Page;
+```
+
+Hooks Next.js provides two specific hooks, namely useParams and useSearchParams, to retrieve the respective information from the URL.
+
+**CLIENT SIDE**
+
+```js
+"use client";
+
+import { useParams } from "next/navigation";
+
+function ExampleClientComponent() {
+  const params = useParams();
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
+
+  return <p>Example Client Component</p>;
+}
+
+export default ExampleClientComponent;
+```
+
+I. Forming URL with Query
+**SERVER SIDE**
+
+```js
+<Link
+  href={{
+    pathname: "/jobs",
+    query: { type: "softwaredeveloper" },
+  }}
+>
+  All Jobs
+</Link>
+```
+
+II. Forming URL with Query
+**CLIENT SIDE**
+
+```js
+const router = useRouter();
+
+const handleButtonClick = () => {
+  router.push({
+    pathname: "/search",
+    query: { q: "your_search_query_here" },
+  });
+};
+```
+
+**III. PROGRAMATICALLY**
+
+```js
+const handleButtonClick = () => {
+  const searchParams = new URLSearchParams(window.location.search);
+  searchParams.set("q", "your_search_query_here");
+
+  window.location.href = `${
+    window.location.pathname
+  }?${searchParams.toString()}`;
+};
+```
+
+**IV. Via Package**
+`query-string`: Parse and stringify URL query strings
+
+**NOTE:**
+
+1. Using hooks would mean turning that component into a client component.
+2. If the component is near its parent Page, then instead of opting for these hooks, you can pass `params` and `searchParams` of Page props to its respective children. A bit of prop drilling won’t hurt.
