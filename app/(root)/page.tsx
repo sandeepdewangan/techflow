@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -14,11 +15,17 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "Sandeep Dewangan" },
+    author: {
+      _id: "1",
+      name: "Sandeep Dewangan",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsynwv-5qtogtOwJbIjaPFJUmHpzhxgqIAug&s",
+    },
     upvotes: 10,
     downvtes: 50,
     views: 100,
-    createdAt: new Date(),
+    createdAt: new Date("1990-09-02"),
+    answers: 2,
   },
   {
     _id: "2",
@@ -29,11 +36,17 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "Sandeep Dewangan" },
+    author: {
+      _id: "1",
+      name: "Sandeep Dewangan",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsynwv-5qtogtOwJbIjaPFJUmHpzhxgqIAug&s",
+    },
     upvotes: 20,
     downvtes: 10,
     views: 190,
-    createdAt: new Date(),
+    createdAt: new Date("2021-09-02"),
+    answers: 2,
   },
   {
     _id: "3",
@@ -41,11 +54,17 @@ const questions = [
     description:
       "An iterator is an object that contains a countable number of values.",
     tags: [{ _id: "1", name: "Python" }],
-    author: { _id: "2", name: "Khushbu Dewangan" },
+    author: {
+      _id: "2",
+      name: "Khushbu Dewangan",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsynwv-5qtogtOwJbIjaPFJUmHpzhxgqIAug&s",
+    },
     upvotes: 100,
     downvtes: 5,
     views: 150,
-    createdAt: new Date(),
+    createdAt: new Date("2025-01-01"),
+    answers: 2,
   },
 ];
 
@@ -88,9 +107,7 @@ export default async function Home({ searchParams }: SearchParams) {
 
         <section className="pt-8">
           {filteredQuestion.map((question) => (
-            <div key={question._id}>
-              <p>{question.title}</p>
-            </div>
+            <QuestionCard key={question._id} question={question} />
           ))}
         </section>
       </section>
