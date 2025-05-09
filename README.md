@@ -15,6 +15,7 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 1. `next-themes`: For dark and light mode theme.
 2. AuthJS for authentication.
 3. `query-string`
+4. MDXEditor for Markdown editor.
 
 ### Regular Expressions
 
