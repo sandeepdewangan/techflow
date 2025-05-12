@@ -9,6 +9,7 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 3. Tailwind CSS for Styling
 4. React Hook Form
 5. Zod for schema declaration and validation
+6. mongodb - Database
 
 ### Package Used
 
@@ -16,6 +17,7 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 2. AuthJS for authentication.
 3. `query-string`
 4. MDXEditor for Markdown editor.
+5. `mongoose`: Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.
 
 ### Regular Expressions
 
@@ -311,3 +313,14 @@ const handleButtonClick = () => {
 
 1. Using hooks would mean turning that component into a client component.
 2. If the component is near its parent Page, then instead of opting for these hooks, you can pass `params` and `searchParams` of Page props to its respective children. A bit of prop drilling won’t hurt.
+
+### Web and Application Server
+
+A web server is a software component that delivers static data like images, files, and text in response to client requests. An application server adds business logic to compute the web server's response. Both terms are used **synonymously**, and the most popular server software solutions today are hybrid web application servers.
+
+### Alternative of Moongose
+
+1. Mongoose: Schema, Validation and ORM. Best for complex apps that needs strong consistency.
+2. MongoDB Native Driver: High flexibility and direct control over MongoDB. Best for light weight apps that don't need strict data rules.
+3. Prisma ORM: Best for SQL.
+4. Drizzle ORM: Best for SQL.
