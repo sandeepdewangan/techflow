@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // dont keep these external packages into main where all packages reside. Keep them separate.
+  serverExternalPackages: ['pino', 'pino-pretty'],
   images: {
     remotePatterns: [
       {

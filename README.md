@@ -18,6 +18,7 @@ TechFLow is a mobile friendly web app where user can ask questions on a programm
 3. `query-string`
 4. MDXEditor for Markdown editor.
 5. `mongoose`: Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js.
+6. `pino` & `pino-pretty`: Logger and prettier.
 
 ### Regular Expressions
 
