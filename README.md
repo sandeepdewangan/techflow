@@ -384,3 +384,34 @@ You write code, and Cloud providers like AWS, Google Cloud, Azure, or Vercel han
 ### Route Handler (API)
 
 https://github.com/JavaScript-Mastery-Pro/ultimate-nextjs_route-handlers
+
+### Response or NextResponse
+
+When returning data from Route Handlers in Next.js, you have two main options: new Response and NextResponse.
+
+**Response** is part of the Web API and is the standard way to create response objects in JavaScript
+
+Use Response when:
+
+- You want to stick closely to Web standards
+- You're writing code that might be used in other contexts outside of Next.js
+- You need to create a response with a specific body and headers without any Next.js-specific features
+
+```js
+export async function GET() {
+  return new Response(JSON.stringify({ message: "Hello" }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+```
+
+**NextResponse** is a Next.js utility that extends the standard Response object with additional features specific to Next.js.
+
+Use NextResponse when:
+
+- You want to take advantage of Next.js-specific features
+- You need to manipulate cookies or rewrite URLs
+- You want to use convenience methods for common tasks
