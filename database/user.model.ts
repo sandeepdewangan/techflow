@@ -1,7 +1,7 @@
 import { model, models, Schema } from "mongoose";
 
 // Model for our code to access (Local Model)
-interface IUser {
+export interface IUser {
     name: string;
     username: string;
     email: string;
