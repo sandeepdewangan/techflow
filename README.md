@@ -324,3 +324,52 @@ A web server is a software component that delivers static data like images, file
 2. MongoDB Native Driver: High flexibility and direct control over MongoDB. Best for light weight apps that don't need strict data rules.
 3. Prisma ORM: Best for SQL.
 4. Drizzle ORM: Best for SQL.
+
+### Mongo DB Database Creation Choices
+
+Choosing between using an array of references and creating multiple collections in MongoDB depends on the specific requirement of application.
+
+**Use Array of References when:**
+
+1. Many to Many Relationship exists.
+2. Frequent queries on related data.
+3. Lightweight relatioship.
+
+Example:
+
+```mermaid
+graph LR;
+A(["Student Collection"]);
+B(["Course Collection"]);
+A --> B
+```
+
+Student points to the course collection and has an reference.
+
+Cons:
+
+- Can lead to large document if array grows.
+- Requires extra query to resolve references.
+
+To fix these cons, use **Multiple Collections**
+
+**Use Multiple Collections when:**
+
+1. Complex Relationships.
+2. Data can be managed independently.
+3. Flexibility and Scalability.
+
+Example:
+
+```mermaid
+graph TB;
+A(["Student Collection"]);
+B(["Course Collection"]);
+C(["Enrollment Collection"]);
+```
+
+They all are independent. The Enrollment collection contain `student_id` and `course_id`.
+
+Cons:
+
+- Requries more complex queries.
