@@ -415,3 +415,8 @@ Use NextResponse when:
 - You want to take advantage of Next.js-specific features
 - You need to manipulate cookies or rewrite URLs
 - You want to use convenience methods for common tasks
+
+### Zod
+
+- Zod .parse: Throws an error if validation fails. This is useful when you want to immediately stop execution and handle the error centrally, such as within a middleware or a try-catch block.
+- Zod .safeParse: Does not error, but returns an object with a success boolean property and, based on that, either the validated data or the validation error.
