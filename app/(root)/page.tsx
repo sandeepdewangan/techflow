@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
@@ -73,7 +74,10 @@ interface SearchParams {
 }
 
 export default async function Home({ searchParams }: SearchParams) {
-  const { query = "" } = await searchParams;
+  const session = await auth();
+  console.log("Session: ", session);
+
+  const { query = "", filter = "" } = await searchParams;
 
   // filter the question based on query
   const filteredQuestion = questions.filter((question) =>
